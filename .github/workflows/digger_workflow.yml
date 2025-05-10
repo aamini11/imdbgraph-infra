@@ -6,18 +6,18 @@ name: Digger Workflow
 on:
   workflow_dispatch:
     inputs:
-      project:
+      spec:
+        description: 'The spec file to use for the digger run'
         required: true
-        description: 'Environment to fetch secrets from'
-        type: choice
-        options:
-          - staging
-          - prod
+      run_name:
+        description: 'The name of the run'
+        required: true
+
+run-name: '${{inputs.run_name}}'
 
 jobs:
   digger-job:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.project }}
     permissions:
       contents: write      # required to merge PRs
       actions: write       # required for plan persistence
@@ -28,19 +28,12 @@ jobs:
     steps:
       - name: Checkout Terraform Code
         uses: actions/checkout@v4
-        
-      - name: Checkout Pull Request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: github.event_name == 'issue_comment'
-        run: |
-          PR_URL="${{ github.event.issue.pull_request.url }}"
-          PR_NUM=${PR_URL}
-          echo "Checking out from PR #$PR_NUM based on URL: $PR_URL"
-          hub pr checkout $PR_NUM
-
+      - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
+        run: echo "Spec ${{ fromJSON(github.event.inputs.spec) }}"
       - name: digger
         uses: diggerhq/digger@vLatest
+        with:
+          digger-spec: ${{ inputs.spec }}
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
