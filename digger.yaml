@@ -1,0 +1,11 @@
+# Digger is the CI tool used for verifying Terraform code in PRs.
+# https://docs.digger.dev/readme/introduction
+
+# digger.yaml reference:
+# https://docs.digger.dev/ce/reference/digger.yml
+
+projects:
+- name: prod
+  dir: terraform/deployments/prod
+- name: staging
+  dir: terraform/deployments/staging
