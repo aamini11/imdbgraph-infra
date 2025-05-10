@@ -30,8 +30,6 @@ jobs:
     steps:
       - name: Checkout Terraform Code
         uses: actions/checkout@v4
-      - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
-        run: echo "Spec ${{ github.event.inputs.spec }}"
       - name: digger
         uses: diggerhq/digger@vLatest
         with:
