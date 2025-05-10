@@ -1,4 +1,4 @@
-# This workflow is triggered from the GitHub digger orchestrator/app.
+# This workflow is triggered from the GitHub digger orchestrator.
 # See digger.yaml at the root of the repo for more details.
 
 name: Digger Workflow
@@ -44,9 +44,11 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
           LOCK_PROVIDER: azure
           DIGGER_AZURE_AUTH_METHOD: CONNECTION_STRING
           DIGGER_AZURE_CONNECTION_STRING: ${{ secrets.DIGGER_AZURE_CONNECTION_STRING }}
+          
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
