@@ -5,6 +5,8 @@ name: Digger Workflow
 
 on:
   workflow_dispatch:
+    # Inputs provided by Digger orchestrator: 
+    # https://docs.digger.dev/ce/reference/action-inputs
     inputs:
       spec:
         description: 'The spec file to use for the digger run'
@@ -13,7 +15,7 @@ on:
         description: 'The name of the run'
         required: true
 
-run-name: '${{inputs.run_name}}'
+run-name: '${{ inputs.run_name }}'
 
 jobs:
   digger-job:
@@ -29,7 +31,7 @@ jobs:
       - name: Checkout Terraform Code
         uses: actions/checkout@v4
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
-        run: echo "Spec ${{ fromJSON(github.event.inputs.spec) }}"
+        run: echo "Spec ${{ github.event.inputs.spec }}"
       - name: digger
         uses: diggerhq/digger@vLatest
         with:
