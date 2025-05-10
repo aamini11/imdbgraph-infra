@@ -8,4 +8,4 @@ kubectl -n imdbgraph create secret generic imdbgraph-secrets \
     --from-env-file=.env.secret \
     --dry-run=client \
     -o json \
-| kubeseal -f /dev/stdin -w ../../manifests/app/sealed-secret.yaml
+| kubeseal -f /dev/stdin -w ./apps/sealed-secret.yaml
