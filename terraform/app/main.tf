@@ -77,27 +77,27 @@ resource "azurerm_role_assignment" "reader" {
 ###############################################################################
 # Database
 ###############################################################################
-# resource "azurerm_postgresql_flexible_server" "default" {
-#   name                = "db-imdbgraph"
-#   location            = azurerm_resource_group.main.location
-#   resource_group_name = azurerm_resource_group.main.name
+resource "azurerm_postgresql_flexible_server" "default" {
+  name                = "db-imdbgraph"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
 
-#   version    = "16"
-#   sku_name   = "B_Standard_B1ms"
-#   storage_mb = 32768
-#   zone       = "1"
+  version    = "16"
+  sku_name   = "B_Standard_B1ms"
+  storage_mb = 32768
+  zone       = "1"
 
-#   public_network_access_enabled = false
-#   administrator_login           = "postgres"
-#   administrator_password        = random_password.db.result
+  public_network_access_enabled = false
+  administrator_login           = "postgres"
+  administrator_password        = random_password.db.result
 
-#   # prevent the possibility of accidental data loss
-#   lifecycle {
-#     prevent_destroy = true
-#   }
-# }
+  # prevent the possibility of accidental data loss
+  lifecycle {
+    prevent_destroy = true
+  }
+}
 
-# resource "random_password" "db" {
-#   length           = 16
-#   special          = true
-# }
+resource "random_password" "db" {
+  length           = 16
+  special          = true
+}
