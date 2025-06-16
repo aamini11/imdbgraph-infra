@@ -6,7 +6,7 @@ metadata:
   name: imdbgraph
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/imdbgraph/prod
+  path: ./kubernetes/apps/imdbgraph-api/prod
   dependsOn:
     - name: system
   sourceRef:

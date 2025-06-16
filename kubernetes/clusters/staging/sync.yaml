@@ -6,7 +6,7 @@ metadata:
   name: imdbgraph
   namespace: flux-system
 spec:
-  path: ./infra/k8/apps/imdbgraph/staging
+  path: ./infra/k8/apps/imdbgraph-api/staging
   dependsOn:
     - name: system
   sourceRef:
