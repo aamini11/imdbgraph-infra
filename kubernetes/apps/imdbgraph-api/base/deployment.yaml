@@ -35,6 +35,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: imdbgraph-config
+            - secretRef:
+                name: imdbgraph-secrets
+
 ---
 apiVersion: v1
 kind: Service
