@@ -16,9 +16,8 @@ resource "azurerm_kubernetes_cluster" "this" {
 
   default_node_pool {
     name                        = "agentpool"
-    node_count                  = 1
+    node_count                  = 2
     vm_size                     = "Standard_D2d_v5"
-    temporary_name_for_rotation = "agentpool2"
 
     upgrade_settings {
       drain_timeout_in_minutes      = 0
