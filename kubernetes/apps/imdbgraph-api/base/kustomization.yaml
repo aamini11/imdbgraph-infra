@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: imdbgraph
 resources:
   - deployment.yaml
-  - sealed-secret.yaml
