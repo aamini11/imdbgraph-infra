@@ -1,0 +1,2 @@
+- This project uses Next.js, React, Typescript, Tailwind, Shadcnui, and Jest.
+- Use pnpm commands instead of npm.
