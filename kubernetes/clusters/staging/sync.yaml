@@ -42,7 +42,7 @@ metadata:
   name: helm
   namespace: flux-system
 spec:
-  path: ./kubernetes/common/helm/staging 
+  path: ./kubernetes/common/helm 
   sourceRef:
     kind: GitRepository
     name: flux-system
