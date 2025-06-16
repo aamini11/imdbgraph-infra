@@ -4,7 +4,7 @@
 # TEMPLATE: 
 # https://docs.digger.dev/ce/getting-started/github-actions-+-aws#create-github-actions-workflow-file
 
-name: Digger Workflow
+name: CI/CD Workflow
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
 run-name: '${{ inputs.run_name }}'
 
 jobs:
-  digger-job:
+  terraform-job:
     runs-on: ubuntu-latest
     environment: ${{ fromJSON(github.event.inputs.spec).job.projectName }}
     permissions:
