@@ -15,9 +15,9 @@ resource "azurerm_kubernetes_cluster" "this" {
   dns_prefix          = "imdbgraph-api"
 
   default_node_pool {
-    name       = "agentpool"
-    node_count = 1
-    vm_size    = "Standard_D2d_v5"
+    name                        = "agentpool"
+    node_count                  = 1
+    vm_size                     = "Standard_D2d_v5"
     temporary_name_for_rotation = "agentpool2"
 
     upgrade_settings {
@@ -85,7 +85,6 @@ resource "azurerm_postgresql_flexible_server" "default" {
   version    = "16"
   sku_name   = "B_Standard_B1ms"
   storage_mb = 32768
-  zone       = "1"
 
   public_network_access_enabled = false
   administrator_login           = "postgres"
@@ -98,6 +97,6 @@ resource "azurerm_postgresql_flexible_server" "default" {
 }
 
 resource "random_password" "db" {
-  length           = 16
-  special          = true
+  length  = 16
+  special = true
 }

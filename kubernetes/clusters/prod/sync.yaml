@@ -25,7 +25,7 @@ metadata:
   name: system
   namespace: flux-system
 spec:
-  path: ./infra/k8/system/prod
+  path: ./kubernetes/common/system/prod
   dependsOn:
     - name: helm
   sourceRef:
@@ -42,7 +42,7 @@ metadata:
   name: helm
   namespace: flux-system
 spec:
-  path: ./infra/k8/helm
+  path: ./kubernetes/common/helm/prod
   sourceRef:
     kind: GitRepository
     name: flux-system
