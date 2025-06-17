@@ -28,3 +28,18 @@ spec:
         enabled: true
     gateway:
       enabled: false
+    ports:
+      web:
+        http:
+          redirections:
+            entryPoint:
+              to: websecure
+              scheme: https
+      websecure:
+        tls:
+          enabled: true
+    entryPoints:
+      web:
+        address: ":80"
+      websecure:
+        address: ":443"
