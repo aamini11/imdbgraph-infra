@@ -85,7 +85,7 @@ resource "azurerm_postgresql_flexible_server" "default" {
   sku_name   = "B_Standard_B1ms"
   storage_mb = 32768
 
-  public_network_access_enabled = false
+  public_network_access_enabled = true
   administrator_login           = "postgres"
   administrator_password        = random_password.db.result
 
@@ -93,6 +93,12 @@ resource "azurerm_postgresql_flexible_server" "default" {
   lifecycle {
     prevent_destroy = true
   }
+}
+
+resource "azurerm_postgresql_flexible_server_configuration" "default" {
+  name      = "azure.extensions"
+  server_id = azurerm_postgresql_flexible_server.default.id
+  value     = "PG_TRGM"
 }
 
 resource "random_password" "db" {
