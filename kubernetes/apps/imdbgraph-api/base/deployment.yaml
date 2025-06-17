@@ -60,14 +60,13 @@ spec:
   parentRefs:
     - name: traefik-gateway
       namespace: networking
+  hostnames:
+    - api.staging.imdbgraph.org
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      backendRefs:
-        - name: imdbgraph-service
-          port: 80
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
