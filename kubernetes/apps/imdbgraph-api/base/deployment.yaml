@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: imdbgraph-api
-          image: ghcr.io/aamini11/imdbgraph-api:main
+          image: ghcr.io/aamini11/imdbgraph-client:main
           ports:
             - containerPort: 8080
           resources:
