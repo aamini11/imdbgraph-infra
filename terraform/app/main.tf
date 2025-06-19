@@ -45,7 +45,7 @@ resource "azurerm_kubernetes_cluster" "this" {
 # Networking
 ###############################################################################
 resource "azurerm_dns_zone" "imdbgraph" {
-  name                = "api.staging.imdbgraph.org"
+  name                = "staging.imdbgraph.org"
   resource_group_name = azurerm_resource_group.main.name
 }
 

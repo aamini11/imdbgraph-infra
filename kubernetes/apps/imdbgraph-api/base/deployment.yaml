@@ -62,7 +62,7 @@ spec:
       namespace: networking
       sectionName: web
   hostnames:
-    - api.staging.imdbgraph.org
+    - staging.imdbgraph.org
   rules:
     - filters:
         - type: RequestRedirect
@@ -79,7 +79,7 @@ spec:
       namespace: networking
       sectionName: websecure
   hostnames:
-    - api.staging.imdbgraph.org
+    - staging.imdbgraph.org
   rules:
     - matches:
         - path:
