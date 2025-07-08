@@ -1,8 +1,9 @@
-FILE_DIR=$(dirname "$0")
+cd $(dirname "$0")
 
-cd $FILE_DIR
+# Set up credentials
 source .env
-export TF_VAR_github_token=$GITHUB_TOKEN
+
+# Apply
 cd ./deployments/staging
 terraform init
 terraform apply -auto-approve

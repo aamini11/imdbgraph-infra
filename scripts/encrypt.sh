@@ -4,9 +4,7 @@ az aks get-credentials \
     --name aks-imdbgraph \
     --overwrite-existing
 
-FILE_DIR=$(dirname "$0")
-cd $FILE_DIR/../kubernetes/apps/imdbgraph-api/staging
-echo $(pwd)
+cd $(dirname "$0")/../kubernetes/apps/imdbgraph-api/staging
 # Encrypt .env -> sealed-secret.yaml
 kubectl -n imdbgraph create secret generic imdbgraph-secrets \
     --from-env-file=.env \

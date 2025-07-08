@@ -5,6 +5,7 @@
 config/**/*
 .env
 .env.*
+!.env.sample
 
 # IntelliJ
 .idea
