@@ -103,5 +103,5 @@ resource "azurerm_postgresql_flexible_server_configuration" "default" {
 
 resource "random_password" "db" {
   length  = 16
-  special = true
+  special = false
 }
