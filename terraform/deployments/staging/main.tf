@@ -27,7 +27,7 @@ module "app" {
 
   location            = "westus"
   resource_group_name = "rg-imdbgraph-staging"
-  target_path         = "kubernetes/clusters/staging"
+  target_path         = "kubernetes/gitops/staging"
   github_token        = var.github_token
 }
 

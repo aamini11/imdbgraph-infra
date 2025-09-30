@@ -27,7 +27,7 @@ module "app" {
 
   location            = "westus"
   resource_group_name = "rg-imdbgraph-prod"
-  target_path         = "kubernetes/clusters/prod"
+  target_path         = "kubernetes/gitops/prod"
   github_token        = var.github_token
 }
 
